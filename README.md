@@ -4,7 +4,7 @@ Infraestrutura como código (Terraform) para provisionar o banco de dados RDS Po
 
 ## Recursos provisionados
 
-- **RDS PostgreSQL 16.3** — instância `db.t3.micro` (free tier)
+- **RDS PostgreSQL 16.9** — instância `db.t3.micro` (free tier)
 - **Security Group** — libera porta 5432
 - **DB Subnet Group** — usa subnets da VPC padrão
 
@@ -50,8 +50,16 @@ develop → homolog (só CI) → main (deploy automático via PR)
 | `AWS_SECRET_ACCESS_KEY` | Credencial AWS |
 | `DB_PASSWORD` | Senha do banco de dados |
 
+## Infraestrutura provisionada
+
+- **Endpoint:** `oficina-db.claqg4404q5p.sa-east-1.rds.amazonaws.com`
+- **Porta:** `5432`
+- **Banco:** `oficina`
+
 ## Após o deploy
 
 Copie o valor de `db_host` do output e atualize o secret `DB_HOST` nos repositórios:
-- `oficina-lambda` (environments: homolog e production)
-- `oficina-app` (environments: homolog e production)
+- `oficina-lambda` (environment: homolog)
+- `oficina-app` (environment: homolog)
+
+> O schema do banco é criado automaticamente pelo Flyway quando o `oficina-app` inicializa no EKS.
