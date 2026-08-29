@@ -81,7 +81,7 @@ resource "aws_db_instance" "oficina" {
 
   publicly_accessible     = true
   skip_final_snapshot     = true
-  backup_retention_period = 7
+  backup_retention_period = 0
   deletion_protection     = false
 
   tags = {
