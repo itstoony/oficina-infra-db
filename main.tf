@@ -67,7 +67,7 @@ resource "aws_db_subnet_group" "oficina" {
 resource "aws_db_instance" "oficina" {
   identifier        = "oficina-db"
   engine            = "postgres"
-  engine_version    = "16.3"
+  engine_version    = "16.9"
   instance_class    = "db.t3.micro"
   allocated_storage = 20
   storage_type      = "gp2"
