@@ -67,7 +67,7 @@ resource "aws_db_subnet_group" "oficina" {
 resource "aws_db_instance" "oficina" {
   identifier        = "oficina-db"
   engine            = "postgres"
-  engine_version    = "16.3"
+  engine_version    = "16.9"
   instance_class    = "db.t3.micro"
   allocated_storage = 20
   storage_type      = "gp2"
@@ -81,7 +81,7 @@ resource "aws_db_instance" "oficina" {
 
   publicly_accessible     = true
   skip_final_snapshot     = true
-  backup_retention_period = 7
+  backup_retention_period = 0
   deletion_protection     = false
 
   tags = {
